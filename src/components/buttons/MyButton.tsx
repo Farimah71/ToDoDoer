@@ -6,7 +6,7 @@ interface buttonProps {
 
 const MyButton = (props: buttonProps) => {
   return (
-    <Button variant="contained" color="warning" href="#contained-buttons">
+    <Button variant="contained" color="warning" href="#">
       {props.text}
     </Button>
   );
