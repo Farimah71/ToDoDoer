@@ -1,8 +1,13 @@
-$bg-color: rgb(246, 236, 195);
+@use "../../styles/mainBgColor";
 
 .header {
   width: 45rem;
-  height: 4rem;
-  line-height: 4rem;
-  background-color: $bg-color;
+  //   height: 3rem;
+  line-height: 3rem;
+  padding: 1px;
+  background-color: mainBgColor.$main-bg-color;
+  border-bottom-style: double;
+  border-color: brown;
+  border-start-start-radius: 5px;
+  border-start-end-radius: 5px;
 }

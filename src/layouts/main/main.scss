@@ -1,0 +1,6 @@
+@use "../../styles/mainBgColor";
+
+.main {
+  background-color: mainBgColor.$main_bg-color;
+  color: black;
+}
