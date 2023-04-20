@@ -1,10 +1,13 @@
 import { useAppSelector } from "../../app/hooks";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import DeleteIcon from "@mui/icons-material/DeleteTwoTone";
+import Stack from "@mui/material/Stack/Stack";
+import Chip from "@mui/material/Chip/Chip";
 import "./todosList.scss";
 
 const TodosList = (): JSX.Element => {
   const allTasks = useAppSelector((state) => state.todos);
+  const todayDate = new Date();
 
   return (
     <>
@@ -19,17 +22,42 @@ const TodosList = (): JSX.Element => {
                   value=""
                   aria-label="..."
                 />
-                {task.task_name} | {task.date.toDateString()}
-                <span className="task-control">
-                  <EditNoteIcon
-                    color="warning"
-                    className="icon-control clickable"
-                  />
-                  <DeleteIcon
-                    color="error"
-                    className="icon-control clickable"
-                  />
-                </span>
+
+                <span className="task-name">{task.task_name}</span>
+                
+                <div className="today-badge mx-1">
+                  {task.date.toDateString() === todayDate.toDateString() && (
+                    <Stack direction="row">
+                      <Chip
+                        label="Today"
+                        color="warning"
+                        size="small"
+                        variant="outlined"
+                      />
+                    </Stack>
+                  )}
+                </div>
+
+                <div className="control-date-group d-flex ms-auto">
+                  <div className="card date">
+                    {task.date.toLocaleDateString("en", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </div>
+
+                  <span className="task-control">
+                    <EditNoteIcon
+                      color="warning"
+                      className="icon-control clickable"
+                    />
+                    <DeleteIcon
+                      color="error"
+                      className="icon-control clickable"
+                    />
+                  </span>
+                </div>
               </li>
             </div>
           ))}

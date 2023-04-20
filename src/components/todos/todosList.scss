@@ -1,23 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
+$task-list-font: "Merriweather", serif;
+
 li.list-group-item {
   display: flex;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+.form-check-input{
+  margin-top: 7.5px !important;
 }
 
 .form-check-input:checked {
   background-color: green !important;
 }
 
-.form-check-input:hover{
-    transform: scale(1.3);
+.form-check-input:hover {
+  transform: scale(1.3);
+}
+
+.task-name {
+  margin-top: 4px;
 }
 
 .task-control {
   margin-left: auto;
 }
 
-.clickable{
+.clickable {
   cursor: pointer;
 }
 
-.icon-control:hover{
+.icon-control:hover {
   transform: scale(1.1);
+}
+
+.date {
+  background-color: #e6d9a8 !important;
+  font-family: serif;
+  padding: 4px;
+  min-width: 7em !important;
+  text-align: center;
+  margin-right: 50px;
+  border-color: #fff !important;
+}
+
+.today-badge {
+  margin-top: 5px;
 }

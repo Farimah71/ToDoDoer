@@ -23,7 +23,7 @@ const initialState = [
   {
     id: "asdf789",
     task_name: "Start new project",
-    date: new Date(2023, 4, 20),
+    date: new Date(2023, 3, 20),
     done: false,
   },
 ] as todoState[];

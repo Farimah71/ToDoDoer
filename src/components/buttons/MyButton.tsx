@@ -6,7 +6,12 @@ interface buttonProps {
 
 const MyButton = (props: buttonProps) => {
   return (
-    <Button variant="contained" color="warning" href="#">
+    <Button
+      sx={{ ":hover": { color: "black" } }}
+      variant="contained"
+      color="warning"
+      href="#"
+    >
       {props.text}
     </Button>
   );
