@@ -1,8 +1,9 @@
 import { useAppSelector } from "../../app/hooks";
-import ControlButtons from "../../utils/controlButtons";
+import ControlButtons from "../../utils/controlButtons/ControlButtons";
 import Stack from "@mui/material/Stack/Stack";
 import Chip from "@mui/material/Chip/Chip";
 import "./todosList.scss";
+import DateCard from "../../utils/DateCard/DateCard";
 
 const TodosList = (): JSX.Element => {
   const allTasks = useAppSelector((state) => state.todos);
@@ -45,11 +46,7 @@ const TodosList = (): JSX.Element => {
                 </div>
 
                 <div className="control-date-group d-flex ms-auto">
-                  <div className="date card">
-                    {task.date.getMonth()}/{task.date.getDate()}/
-                    {task.date.getFullYear()}
-                  </div>
-
+                  <DateCard date={task.date}/>
                   <ControlButtons />
                 </div>
               </li>
