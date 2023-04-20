@@ -1,3 +1,5 @@
+import './dateCard.scss'
+
 interface DateProps {
   date: Date;
 }
