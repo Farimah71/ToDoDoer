@@ -3,6 +3,7 @@ import { useAppSelector } from "../../app/hooks";
 import Search from "../../components/Search-bar/Search";
 import MyButton from "../../components/buttons/MyButton";
 import TodosList from "../../components/todos/TodosList";
+import Filter from '../../utils/filter/Filter'
 import "./main.scss";
 
 const Main = () => {
@@ -27,6 +28,10 @@ const Main = () => {
 
       <div className="todo-list">
         <TodosList />
+      </div>
+
+      <div className="filter-tasks">
+        <Filter />
       </div>
     </div>
   );
