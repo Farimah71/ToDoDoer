@@ -1,6 +1,5 @@
 import { useAppSelector } from "../../app/hooks";
-import EditNoteIcon from "@mui/icons-material/EditNote";
-import DeleteIcon from "@mui/icons-material/DeleteTwoTone";
+import ControlButtons from "../../utils/controlButtons";
 import Stack from "@mui/material/Stack/Stack";
 import Chip from "@mui/material/Chip/Chip";
 import "./todosList.scss";
@@ -27,8 +26,6 @@ const TodosList = (): JSX.Element => {
                 <input
                   className="form-check-input clickable me-1"
                   type="checkbox"
-                  value=""
-                  aria-label="..."
                 />
 
                 <span className="task-name">{task.task_name}</span>
@@ -53,16 +50,7 @@ const TodosList = (): JSX.Element => {
                     {task.date.getFullYear()}
                   </div>
 
-                  <span className="task-control">
-                    <EditNoteIcon
-                      color="warning"
-                      className="icon-control clickable"
-                    />
-                    <DeleteIcon
-                      color="error"
-                      className="icon-control clickable"
-                    />
-                  </span>
+                  <ControlButtons />
                 </div>
               </li>
             </div>
