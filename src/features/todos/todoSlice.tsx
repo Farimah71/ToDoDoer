@@ -11,7 +11,7 @@ const initialState = [
   {
     id: "asdf123",
     task_name: "Learn React.js",
-    date: new Date(2023, 4, 25),
+    date: new Date(2023, 4, 20),
     done: false,
   },
   {
