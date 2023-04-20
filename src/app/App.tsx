@@ -7,6 +7,7 @@ import Main from "../layouts/main/Main";
 function App() {
   return (
     <Provider store={store}>
+      
       <div className="App">
         <Header />
         <Main />

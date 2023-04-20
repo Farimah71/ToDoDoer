@@ -15,15 +15,11 @@ function LabelBottomNavigation() {
 
   return (
     <BottomNavigation
-      sx={{ width: 500, backgroundColor: "#c5796047" }}
+      sx={{ width: 720, backgroundColor: "#c5796047" }}
       value={value}
       onChange={handleChange}
     >
-      <BottomNavigationAction
-        label="All"
-        value="All"
-        icon={<ListIcon />}
-      />
+      <BottomNavigationAction label="All" value="All" icon={<ListIcon />} />
       <BottomNavigationAction
         label="Complete"
         value="Complete"
