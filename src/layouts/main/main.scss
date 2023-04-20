@@ -1,17 +1,19 @@
-@use "../../styles/mainBgColor";
-@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
-$font: 'Kalam', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+$font: "Kalam", cursive;
 
 .main {
-  background-color: mainBgColor.$main_bg-color;
-  color: black;
-  display: flex;
-  justify-content: space-between;
   padding: 1em;
+  color: black;
 }
 
-.remained-tasks{
-    font-family: $font;
-    font-size: large;
-    line-height: 2.5em;
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.remained-tasks {
+  font-family: $font;
+  font-size: large;
+  line-height: 2.5em;
 }

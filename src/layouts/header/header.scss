@@ -1,12 +1,9 @@
-@use "../../styles/mainBgColor";
-
 .header {
   width: 45rem;
   //   height: 3rem;
   line-height: 3rem;
   text-align: center;
   padding: 1px;
-  background-color: mainBgColor.$main-bg-color;
   border-bottom-style: double;
   border-color: brown;
   border-start-start-radius: 5px;

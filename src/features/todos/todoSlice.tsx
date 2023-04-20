@@ -17,8 +17,8 @@ const initialState = [
   {
     id: "asdf456",
     task_name: "Pay the bills",
-    date: new Date(2023, 4, 30),
-    done: false,
+    date: new Date(2023, 4, 20),
+    done: true,
   },
   {
     id: "asdf789",
@@ -31,6 +31,14 @@ const initialState = [
 export const todoSlice = createSlice({
   name: "todo",
   initialState,
-  reducers: {},
+  reducers: {
+    addTask: () => {},
+    removeTask: () => {},
+    editTask: () => {},
+    toggleDone: () => {},
+  },
 });
 
+export const { addTask, removeTask, editTask, toggleDone } = todoSlice.actions;
+
+export default todoSlice.reducer;
