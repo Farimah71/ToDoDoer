@@ -1,0 +1,23 @@
+li.list-group-item {
+  display: flex;
+}
+
+.form-check-input:checked {
+  background-color: green !important;
+}
+
+.form-check-input:hover{
+    transform: scale(1.3);
+}
+
+.task-control {
+  margin-left: auto;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.icon-control:hover{
+  transform: scale(1.1);
+}
