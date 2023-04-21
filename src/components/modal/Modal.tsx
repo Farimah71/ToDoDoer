@@ -22,9 +22,9 @@ const Modal = () => {
   return (
     <div>
       <MyButton text="Add new task" onClick={handleClickOpen} />
-      
+
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Add Task</DialogTitle>
         <DialogContent>
           <DialogContentText>
             To subscribe to this website, please enter your email address here.
@@ -42,7 +42,7 @@ const Modal = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClose}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>
