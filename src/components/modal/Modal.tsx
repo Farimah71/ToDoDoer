@@ -7,6 +7,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import MyButton from "./../buttons/MyButton";
+import Form from "../../utils/form/Form";
 
 const Modal = () => {
   const [open, setOpen] = React.useState(false);
@@ -26,23 +27,13 @@ const Modal = () => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add Task</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
+        
+          <Form />
+          
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Save</Button>
+          <Button type="submit" >Save</Button>
         </DialogActions>
       </Dialog>
     </div>
