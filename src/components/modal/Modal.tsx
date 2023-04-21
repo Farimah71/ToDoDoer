@@ -6,8 +6,9 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import MyButton from "./../buttons/MyButton";
 
-const NewTaskForm = () => {
+const Modal = () => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -20,9 +21,8 @@ const NewTaskForm = () => {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
+      <MyButton text="Add new task" onClick={handleClickOpen} />
+      
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Subscribe</DialogTitle>
         <DialogContent>
@@ -49,4 +49,4 @@ const NewTaskForm = () => {
   );
 };
 
-export default NewTaskForm;
+export default Modal;

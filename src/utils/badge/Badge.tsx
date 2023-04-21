@@ -5,11 +5,11 @@ interface propType {
   label: string;
 }
 
-const Badge = (props: propType) => {
+const Badge = ({label}: propType) => {
   return (
     <Stack direction="row">
       <Chip
-        label={props.label}
+        label={label}
         color="warning"
         size="small"
         variant="outlined"
