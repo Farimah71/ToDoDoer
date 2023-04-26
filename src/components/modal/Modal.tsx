@@ -1,16 +1,27 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import MyButton from "./../buttons/MyButton";
-import Form from "../../utils/form/Form";
+import FormBody from "./../../utils/form/FormBody";
+import { useForm } from "react-hook-form";
+
+interface FormData {
+  task: string;
+  date: Date;
+}
 
 const Modal = () => {
-  const [open, setOpen] = React.useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+
+  const [task, setTask] = useState("");
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -20,6 +31,14 @@ const Modal = () => {
     setOpen(false);
   };
 
+  const handleTaskChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTask(event.target.value);
+  };
+
+  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setDate(new Date(event.target.value));
+  };
+
   return (
     <div>
       <MyButton text="Add new task" onClick={handleClickOpen} />
@@ -27,13 +46,19 @@ const Modal = () => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add Task</DialogTitle>
         <DialogContent>
-        
-          <Form />
-          
+          <FormBody
+            task={task}
+            date={date}
+            handleTaskChange={handleTaskChange}
+            handleDateChange={handleDateChange}
+            register={register}
+            errors={errors}
+          />
         </DialogContent>
+
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button type="submit" >Save</Button>
+          {/* <formAction /> */}
+          <MyButton text="Cancel" onClick={handleClose} />
         </DialogActions>
       </Dialog>
     </div>

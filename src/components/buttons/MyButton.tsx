@@ -2,17 +2,20 @@ import Button from "@mui/material/Button";
 
 interface buttonProps {
   text: string;
-  onClick: () => void;
+  type?: string;
+  onClick?: () => void;
+  onSubmit?: () => void;
 }
 
-const MyButton = ({ text, onClick }: buttonProps) => {
+const MyButton = ({ text, type = "button", ...rest }: buttonProps) => {
   return (
     <Button
       sx={{ ":hover": { color: "black" } }}
       variant="contained"
       color="warning"
       href="#"
-      onClick={onClick}
+      type={type}
+      {...rest}
     >
       {text}
     </Button>
