@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -6,8 +6,8 @@ import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 import ListIcon from "@mui/icons-material/List";
 import "./filter.scss";
 
-function LabelBottomNavigation() {
-  const [value, setValue] = React.useState("Active");
+function Filter() {
+  const [value, setValue] = useState("Active");
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -19,6 +19,7 @@ function LabelBottomNavigation() {
       value={value}
       onChange={handleChange}
     >
+      {/* Filter buttons: */}
       <BottomNavigationAction label="All" value="All" icon={<ListIcon />} />
       <BottomNavigationAction
         label="Complete"
@@ -34,4 +35,4 @@ function LabelBottomNavigation() {
   );
 }
 
-export default LabelBottomNavigation;
+export default Filter;

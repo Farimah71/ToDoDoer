@@ -5,6 +5,7 @@ interface propType {
   label: string;
 }
 
+// Renders a badge with a certain label sent as prop
 const Badge = ({label}: propType) => {
   return (
     <Stack direction="row">

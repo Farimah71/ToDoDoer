@@ -6,7 +6,7 @@ const Search = () => {
   return (
     <Container maxWidth="md">
       <TextField
-      color="warning"
+        color="warning"
         id="search"
         type="search"
         label="Search For Task..."
@@ -14,6 +14,7 @@ const Search = () => {
         // onChange={handleChange}
         sx={{ width: 200 }}
         size="small"
+        //Search icon of the search box:
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">

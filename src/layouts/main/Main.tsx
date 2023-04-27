@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../app/hooks";
 import Search from "../../components/Search-bar/Search";
-import MyButton from "../../components/buttons/MyButton";
 import TodosList from "../../components/todos/TodosList";
 import Filter from "../../utils/filter/Filter";
-import "./main.scss";
 import Modal from "../../components/modal/Modal";
+import "./main.scss";
 
 const Main = () => {
   const [count, setCount] = useState(0);
   const allTasks = useAppSelector((state) => state.todos);
 
-  const al = allTasks.length;
+  //Counts the number of all existing tasks:
+  const tasksCount = allTasks.length;
 
-  useEffect(() => setCount(al));
+  useEffect(() => setCount(tasksCount));
 
   return (
     <div className="main">
       <div className="first-row">
         <Search />
 
+        {/*Number of remaining tasks notification */}
         <span className="remained-tasks">
           {count === 0 && "Hey, You are free!"}
           {count === 1 && `${count} item left.`}
@@ -29,10 +30,12 @@ const Main = () => {
         <Modal />
       </div>
 
+      {/* Renders todo list */}
       <div className="todo-list">
         <TodosList />
       </div>
 
+      {/* Renders filtering of tasks */}
       <div className="filter-tasks">
         <Filter />
       </div>

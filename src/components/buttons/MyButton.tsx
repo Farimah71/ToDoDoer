@@ -7,6 +7,7 @@ interface buttonProps {
   onSubmit?: () => void;
 }
 
+// Default button type is "button" if not mentioned
 const MyButton = ({ text, type = "button", ...rest }: buttonProps) => {
   return (
     <Button

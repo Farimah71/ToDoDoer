@@ -1,13 +1,14 @@
-import './dateCard.scss'
+import "./dateCard.scss";
 
 interface DateProps {
   date: Date;
 }
 
-const DateCard = (props: DateProps) => {
+const DateCard = ({ date }: DateProps) => {
   return (
+    // Producing "Date Card" according to the desired date format:
     <div className="date card">
-      {props.date.getMonth()}/{props.date.getDate()}/{props.date.getFullYear()}
+      {date.getMonth()}/{date.getDate()}/{date.getFullYear()}
     </div>
   );
 };
