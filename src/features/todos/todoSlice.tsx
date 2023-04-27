@@ -17,13 +17,13 @@ const initialState = [
   {
     id: "asdf456",
     task_name: "Pay the bills",
-    date: new Date(2023, 4, 27).toDateString(),
+    date: new Date(2023, 4, 28).toDateString(),
     done: true,
   },
   {
     id: "asdf789",
     task_name: "Start new project",
-    date: new Date(2023, 3, 20).toDateString(),
+    date: new Date(2023, 4, 29).toDateString(),
     done: false,
   },
 ] as todoState[];

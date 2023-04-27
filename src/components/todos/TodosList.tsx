@@ -31,7 +31,7 @@ const TodosList = (): JSX.Element => {
   };
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(toggleDone(event.target.value));
+    dispatch(toggleDone(event.target.id));
   };
 
   // Rendering all tasks list
@@ -46,7 +46,7 @@ const TodosList = (): JSX.Element => {
                 <input
                   className="form-check-input clickable me-1"
                   type="checkbox"
-                  value={task.id}
+                  id={task.id}
                   checked={task.done && true} //Completed tasks get checked
                   onChange={handleCheckboxChange}
                 />
