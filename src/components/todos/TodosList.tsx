@@ -1,15 +1,22 @@
-import { useAppSelector } from "../../app/hooks";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import ControlButtons from "../../utils/controlButtons/ControlButtons";
 import DateCard from "../../utils/DateCard/DateCard";
 import Badge from "../../utils/badge/Badge";
+import { removeTask } from "../../features/todos/todoSlice";
 import "./todosList.scss";
+
+interface handleDeleteProp {
+  id: string;
+}
 
 const TodosList = (): JSX.Element => {
   const allTasks = useAppSelector((state) => state.todos);
-  const todayDate = new Date();
+  const todayDate = new Date().toDateString();
   const taskDateArr: Date[] = [];
 
-  //Converting task dates to date with correct months
+  const dispatch = useAppDispatch();
+
+  // Converting task dates to date with correct months
   allTasks.forEach((task) => {
     const taskDate = new Date(task.date);
     const taskMonth = taskDate.getMonth() - 1;
@@ -17,7 +24,12 @@ const TodosList = (): JSX.Element => {
     taskDateArr.push(new Date(correctTaskDate));
   });
 
-  //Rendering all tasks list
+  // Deletes a task row by clicking on "delete" icon
+  const handleDelete = (id: string) => {
+    dispatch(removeTask(id));
+  };
+
+  // Rendering all tasks list
   return (
     <>
       <div className="task-list">
@@ -37,13 +49,13 @@ const TodosList = (): JSX.Element => {
                 {/* Renders "Today" badge for the tasks with the date of today */}
                 <div className="today-badge mx-1">
                   {taskDateArr[allTasks.indexOf(task)].toDateString() ===
-                    todayDate.toDateString() && <Badge label={"Today"} />}
+                    todayDate && <Badge label={"Today"} />}
                 </div>
 
                 {/* Task date and control buttons part of each list item */}
                 <div className="control-date-group d-flex ms-auto">
                   <DateCard date={task.date} />
-                  <ControlButtons />
+                  <ControlButtons onDelete={() => handleDelete(task.id)} />
                 </div>
               </li>
             </div>
