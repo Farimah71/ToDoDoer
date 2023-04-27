@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice, current } from "@reduxjs/toolkit";
 
 interface todoState {
   id: string;
@@ -41,7 +41,14 @@ export const todoSlice = createSlice({
     },
 
     editTask: () => {},
-    toggleDone: () => {},
+
+    toggleDone: (state, action: PayloadAction<string>) => {
+      const taskId = action.payload;
+      state = state.map((task) =>
+        task.id === taskId ? { ...task, done: !task.done } : task
+      );
+      return state;
+    },
   },
 });
 

@@ -2,8 +2,9 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import ControlButtons from "../../utils/controlButtons/ControlButtons";
 import DateCard from "../../utils/DateCard/DateCard";
 import Badge from "../../utils/badge/Badge";
-import { removeTask } from "../../features/todos/todoSlice";
+import { removeTask, toggleDone } from "../../features/todos/todoSlice";
 import "./todosList.scss";
+import React from "react";
 
 interface handleDeleteProp {
   id: string;
@@ -29,6 +30,10 @@ const TodosList = (): JSX.Element => {
     dispatch(removeTask(id));
   };
 
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(toggleDone(event.target.value));
+  };
+
   // Rendering all tasks list
   return (
     <>
@@ -41,10 +46,18 @@ const TodosList = (): JSX.Element => {
                 <input
                   className="form-check-input clickable me-1"
                   type="checkbox"
+                  value={task.id}
+                  checked={task.done && true} //Completed tasks get checked
+                  onChange={handleCheckboxChange}
                 />
 
                 {/* Task name */}
-                <span className="task-name">{task.task_name}</span>
+                {/* Completed tasks get line-through style and green color */}
+                <span
+                  className={task.done ? "task-name task-done" : "task-name"}
+                >
+                  {task.task_name}
+                </span>
 
                 {/* Renders "Today" badge for the tasks with the date of today */}
                 <div className="today-badge mx-1">

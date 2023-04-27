@@ -6,8 +6,8 @@ interface FormActionProps {
 }
 
 const FormAction = ({ handleClose, onSubmit }: FormActionProps) => {
-  // Form action buttons("Save" and "Cancel"):
   return (
+    // Form action buttons("Save" and "Cancel"):
     <>
       <MyButton text="Save" type="submit" onSubmit={onSubmit} />
       <MyButton text="Cancel" onClick={handleClose} />

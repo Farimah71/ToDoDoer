@@ -23,6 +23,11 @@ li.list-group-item {
   margin-top: 4px;
 }
 
+.task-done {
+  text-decoration: line-through;
+  color: green;
+}
+
 .clickable {
   cursor: pointer;
 }
