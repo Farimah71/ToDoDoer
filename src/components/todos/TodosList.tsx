@@ -49,12 +49,12 @@ const TodosList = (): JSX.Element => {
                   className="form-check-input clickable me-1"
                   type="checkbox"
                   id={task.id}
-                  checked={task.done && true} //Completed tasks get checked
+                  checked={task.done && true} //Complete tasks get checked
                   onChange={handleCheckboxChange}
                 />
 
                 {/* Task name */}
-                {/* Completed tasks get line-through style and green color */}
+                {/* Complete tasks get line-through style and green color */}
                 <span
                   className={task.done ? "task-name task-done" : "task-name"}
                 >

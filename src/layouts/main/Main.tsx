@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { searchTask } from "../../features/todos/todoSlice";
 import Search from "../../components/Search-bar/Search";
 import Modal from "../../components/modal/Modal";
 import TodosList from "../../components/todos/TodosList";
 import Filter from "../../utils/filter/Filter";
-import { searchTask } from "../../features/todos/todoSlice";
 import "./main.scss";
 
 const Main = () => {
@@ -12,10 +12,11 @@ const Main = () => {
   const allTasks = useAppSelector((state) => state.todos.tasks);
   const dispatch = useAppDispatch();
 
-  //Counts the number of all existing tasks:
-  const tasksCount = allTasks && allTasks.length;
+  //Counts the number of uncomplete tasks:
+  const uncompleteTasks = allTasks.filter((task) => task.done === false);
+  const uncompleteTasksCount = uncompleteTasks.length;
 
-  useEffect(() => setCount(tasksCount));
+  useEffect(() => setCount(uncompleteTasksCount));
 
   const handleSearch = (searchTerm: string) => {
     dispatch(searchTask(searchTerm));
@@ -41,7 +42,7 @@ const Main = () => {
         <TodosList />
       </div>
 
-      {/* Renders filtering of tasks */}
+      {/* Renders task filters*/}
       <div className="filter-tasks">
         <Filter />
       </div>
