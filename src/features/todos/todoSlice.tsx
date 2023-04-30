@@ -61,18 +61,17 @@ export const todoSlice = createSlice({
     // Edits an existing task
     editTask: () => {},
 
-    // Filters tasks according to user search query
+    // Filters tasks by search query
     searchTask: (state, action: PayloadAction<string>) => {
       let searchTerm = action.payload;
-      if (searchTerm) {
-        const filteredTasks = state.tasks.filter((task) =>
-          task.title.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        state.searchTask = {
-          searchTerm,
-          filteredTasks,
-        };
-      }
+      const filteredTasks = state.tasks.filter((task) =>
+        task.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      state.searchTask = {
+        searchTerm,
+        filteredTasks,
+      };
+
       return state;
     },
 
