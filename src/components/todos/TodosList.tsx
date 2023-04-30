@@ -1,17 +1,18 @@
+import React from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { removeTask, toggleDone } from "../../features/todos/todoSlice";
 import ControlButtons from "../../utils/controlButtons/ControlButtons";
 import DateCard from "../../utils/DateCard/DateCard";
 import Badge from "../../utils/badge/Badge";
-import { removeTask, toggleDone } from "../../features/todos/todoSlice";
 import "./todosList.scss";
-import React from "react";
-
-interface handleDeleteProp {
-  id: string;
-}
 
 const TodosList = (): JSX.Element => {
-  const allTasks = useAppSelector((state) => state.todos);
+  const tasks = useAppSelector((state) => state.todos.tasks);
+  const { searchTerm, filteredTasks } = useAppSelector(
+    (state) => state.todos.searchTask
+  );
+  // If searchTerm exists, filteredTasks are shown; otherwise all tasks are listed
+  const allTasks = searchTerm ? filteredTasks : tasks;
   const todayDate = new Date().toDateString();
   const taskDateArr: Date[] = [];
 
@@ -30,11 +31,12 @@ const TodosList = (): JSX.Element => {
     dispatch(removeTask(id));
   };
 
+  // Toggles between complete and uncomplete task
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(toggleDone(event.target.id));
   };
 
-  // Rendering all tasks list
+  // Rendering tasks list
   return (
     <>
       <div className="task-list">
@@ -56,7 +58,7 @@ const TodosList = (): JSX.Element => {
                 <span
                   className={task.done ? "task-name task-done" : "task-name"}
                 >
-                  {task.task_name}
+                  {task.title}
                 </span>
 
                 {/* Renders "Today" badge for the tasks with the date of today */}

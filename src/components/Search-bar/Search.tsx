@@ -2,7 +2,11 @@ import { Container, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import "../Search-bar/search.scss";
 
-const Search = () => {
+interface SearchProps {
+  handleSearch: (searchTerm: string) => void;
+}
+
+const Search = ({ handleSearch }: SearchProps) => {
   return (
     <Container maxWidth="md">
       <TextField
@@ -10,8 +14,8 @@ const Search = () => {
         id="search"
         type="search"
         label="Search For Task..."
-        // value={searchTerm}
-        // onChange={handleChange}
+        defaultValue={""}
+        onChange={(event) => handleSearch(event.target.value)}
         sx={{ width: 200 }}
         size="small"
         //Search icon of the search box:

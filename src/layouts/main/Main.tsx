@@ -1,24 +1,30 @@
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../../app/hooks";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import Search from "../../components/Search-bar/Search";
+import Modal from "../../components/modal/Modal";
 import TodosList from "../../components/todos/TodosList";
 import Filter from "../../utils/filter/Filter";
-import Modal from "../../components/modal/Modal";
+import { searchTask } from "../../features/todos/todoSlice";
 import "./main.scss";
 
 const Main = () => {
-  const [count, setCount] = useState(0);
-  const allTasks = useAppSelector((state) => state.todos);
+  const [count, setCount] = useState<number>(0);
+  const allTasks = useAppSelector((state) => state.todos.tasks);
+  const dispatch = useAppDispatch();
 
   //Counts the number of all existing tasks:
-  const tasksCount = allTasks.length;
+  const tasksCount = allTasks && allTasks.length;
 
   useEffect(() => setCount(tasksCount));
+
+  const handleSearch = (searchTerm: string) => {
+    dispatch(searchTask(searchTerm));
+  };
 
   return (
     <div className="main">
       <div className="first-row">
-        <Search />
+        <Search handleSearch={handleSearch} />
 
         {/*Number of remaining tasks notification */}
         <span className="remained-tasks">
