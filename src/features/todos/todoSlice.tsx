@@ -101,6 +101,19 @@ export const todoSlice = createSlice({
     // Toggles between complete and uncomplete task
     toggleDone: (state, action: PayloadAction<string>) => {
       const taskId = action.payload;
+      // Toggles "complete/uncomplete" among filtered tasks
+      if (state.filterTask.option) {
+        state.filterTask.filteredTask = state.filterTask.filteredTask.map(
+          (task) => (task.id === taskId ? { ...task, done: !task.done } : task)
+        );
+      }
+      // Toggles "complete/uncomplete" among searched tasks
+      if (state.searchTask.searchTerm) {
+        state.searchTask.SearchedTasks = state.searchTask.SearchedTasks.map(
+          (task) => (task.id === taskId ? { ...task, done: !task.done } : task)
+        );
+      }
+      // Toggles "complete/uncomplete" among active tasks
       state.tasks = state.tasks.map((task) =>
         task.id === taskId ? { ...task, done: !task.done } : task
       );
@@ -109,7 +122,7 @@ export const todoSlice = createSlice({
 
     // Filters All, Complete or Active tasks
     filterTask: (state, action: PayloadAction<string>) => {
-      const option = action.payload;
+      const option = action.payload; // Filter value
       let filteredTask = [];
       switch (option) {
         case "Active":
