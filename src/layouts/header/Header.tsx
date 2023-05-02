@@ -3,9 +3,11 @@ import Logo from "../../components/logo/Logo";
 
 const Header = () => {
   return (
-    <div className="header">
-      <Logo />
-    </div>
+    <header>
+      <div className="header">
+        <Logo />
+      </div>
+    </header>
   );
 };
 

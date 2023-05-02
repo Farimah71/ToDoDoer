@@ -6,20 +6,31 @@ import DateCard from "../../utils/DateCard/DateCard";
 import Badge from "../../utils/badge/Badge";
 import "./todosList.scss";
 
-const TodosList = (): JSX.Element => {
+interface TodosListProps {
+  filterOption: string;
+}
+
+const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
+  const dispatch = useAppDispatch();
   const tasks = useAppSelector((state) => state.todos.tasks);
-  const { searchTerm, filteredTasks } = useAppSelector(
+  const { filteredTask } = useAppSelector((state) => state.todos.filterTask);
+  const { searchTerm, SearchedTasks } = useAppSelector(
     (state) => state.todos.searchTask
   );
-  // If searchTerm exists, filteredTasks are shown; otherwise all tasks are listed
-  const allTasks = searchTerm ? filteredTasks : tasks;
   const todayDate = new Date().toDateString();
   const taskDateArr: Date[] = [];
 
-  const dispatch = useAppDispatch();
+  // If filter("Complete" or "Active") is selected or searchTerm entered,
+  // filteredTasks or searchedTasks are shown;
+  // Otherwise, activeTasks render
+  const activeTasks = tasks.filter((task) => task.done === false);
+  const filtered = filterOption && filteredTask;
+  const searched = searchTerm && SearchedTasks;
+  const filteredOrSearched = filtered ? filtered : searched;
+  const displayingTasks = filteredOrSearched ? filteredOrSearched : activeTasks;
 
   // Converting task dates to date with correct months
-  allTasks.forEach((task) => {
+  displayingTasks.forEach((task) => {
     const taskDate = new Date(task.date);
     const taskMonth = taskDate.getMonth() - 1;
     const correctTaskDate = taskDate.setMonth(taskMonth);
@@ -41,7 +52,7 @@ const TodosList = (): JSX.Element => {
     <>
       <div className="task-list">
         <ul className="list-group list-group-light">
-          {allTasks.map((task) => (
+          {displayingTasks.map((task) => (
             <div key={task.id} className="task-row">
               <li className="list-group-item">
                 {/* Task checkbox */}
@@ -63,7 +74,7 @@ const TodosList = (): JSX.Element => {
 
                 {/* Renders "Today" badge for the tasks with the date of today */}
                 <div className="today-badge mx-1">
-                  {taskDateArr[allTasks.indexOf(task)].toDateString() ===
+                  {taskDateArr[displayingTasks.indexOf(task)].toDateString() ===
                     todayDate && <Badge label={"Today"} />}
                 </div>
 
