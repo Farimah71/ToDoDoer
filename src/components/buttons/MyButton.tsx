@@ -4,7 +4,6 @@ interface buttonProps {
   text: string;
   type?: string;
   onClick?: () => void;
-  onSubmit?: () => void;
 }
 
 // Default button type is "button" if not mentioned

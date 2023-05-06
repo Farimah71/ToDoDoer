@@ -28,19 +28,19 @@ const initialState = {
     {
       id: "asdf123",
       title: "Learn React.js",
-      date: new Date(2023, 5, 2).toDateString(),
+      date: new Date(2023, 5, 6).toDateString(),
       done: false,
     },
     {
       id: "asdf456",
       title: "Pay the bills",
-      date: new Date(2023, 5, 3).toDateString(),
+      date: new Date(2023, 5, 7).toDateString(),
       done: true,
     },
     {
       id: "asdf789",
       title: "Start new project",
-      date: new Date(2023, 5, 4).toDateString(),
+      date: new Date(2023, 5, 8).toDateString(),
       done: false,
     },
   ],

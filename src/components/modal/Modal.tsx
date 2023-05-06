@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -8,20 +8,21 @@ import MyButton from "./../buttons/MyButton";
 import FormBody from "./../../utils/form/FormBody";
 import FormAction from "../../utils/form/FormAction";
 
-interface FormData {
+export interface FormData {
   task: string;
-  date: Date;
+  date: string;
 }
 
 const Modal = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful, submitCount },
+    formState: { errors, isSubmitSuccessful },
+    reset,
   } = useForm<FormData>();
 
   const [task, setTask] = useState("");
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState("");
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -37,12 +38,21 @@ const Modal = () => {
   };
 
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDate(new Date(event.target.value));
+    setDate(event.target.value);
   };
 
   const onSubmit = (data: FormData) => {
     console.log(data);
   };
+
+  // Resets form after adding new task
+  useEffect(() => {
+    reset({
+      task: "",
+      date: "",
+    });
+    handleClose();
+  }, [isSubmitSuccessful]);
 
   return (
     <div>
@@ -61,10 +71,6 @@ const Modal = () => {
             register={register}
             errors={errors}
           />
-          {isSubmitting && <div>Submitting...</div>}
-          {submitCount > 0 && isSubmitSuccessful && (
-            <div className="text-success">Task added successfully.</div>
-          )}
         </DialogContent>
 
         {/* Modal action buttons */}

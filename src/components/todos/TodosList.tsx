@@ -17,12 +17,14 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
   const { searchTerm, SearchedTasks } = useAppSelector(
     (state) => state.todos.searchTask
   );
-  const todayDate = new Date().toDateString();
+  const today = new Date().toDateString();
   const taskDateArr: Date[] = [];
 
-  // If filter("Complete" or "Active") is selected or searchTerm entered,
-  // filteredTasks or searchedTasks are shown;
-  // Otherwise, activeTasks render
+  /**
+   * If filter("Complete" or "Active") is selected or searchTerm entered,
+   * filteredTasks or searchedTasks are shown;
+   * Otherwise, activeTasks render.
+   */
   const activeTasks = tasks.filter((task) => task.done === false);
   const filtered = filterOption && filteredTask;
   const searched = searchTerm && SearchedTasks;
@@ -64,8 +66,10 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
                   onChange={handleCheckboxChange}
                 />
 
-                {/* Task name */}
-                {/* Complete tasks get line-through style and green color */}
+                {/*
+                 * Task name
+                 * Complete tasks get line-through style and green color
+                 */}
                 <span
                   className={task.done ? "task-name task-done" : "task-name"}
                 >
@@ -75,7 +79,7 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
                 {/* Renders "Today" badge for the tasks with the date of today */}
                 <div className="today-badge mx-1">
                   {taskDateArr[displayingTasks.indexOf(task)].toDateString() ===
-                    todayDate && <Badge label={"Today"} />}
+                    today && <Badge label={"Today"} />}
                 </div>
 
                 {/* Task date and control buttons part of each list item */}

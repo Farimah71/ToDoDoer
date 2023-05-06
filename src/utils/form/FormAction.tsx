@@ -9,7 +9,7 @@ const FormAction = ({ handleClose, onSubmit }: FormActionProps) => {
   return (
     // Form action buttons("Save" and "Cancel"):
     <>
-      <MyButton text="Save" type="submit" onSubmit={onSubmit} />
+      <MyButton text="Save" type="submit" onClick={onSubmit} />
       <MyButton text="Cancel" onClick={handleClose} />
     </>
   );

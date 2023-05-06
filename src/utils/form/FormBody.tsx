@@ -1,23 +1,23 @@
 import { UseFormRegister, useFormState } from "react-hook-form";
-import { FieldValues } from "react-hook-form/dist/types";
+import { FormData } from "../../components/modal/Modal";
 
-interface FormBodyProps<T extends FieldValues> {
+interface FormBodyProps {
   task: string;
-  date: Date;
+  date: string;
   handleTaskChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleDateChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  register: UseFormRegister<T>;
+  register: UseFormRegister<FormData>;
   errors: ReturnType<typeof useFormState>["errors"];
 }
 
-const FormBody = <T extends FieldValues>({
+const FormBody = ({
   task,
   date,
   handleTaskChange,
   handleDateChange,
   register,
   errors,
-}: FormBodyProps<T>) => {
+}: FormBodyProps) => {
   return (
     <div className="row">
       <div className="col-7">
@@ -38,7 +38,7 @@ const FormBody = <T extends FieldValues>({
         <label htmlFor="date">Date</label>
         <input
           type="date"
-          value={date.toISOString().slice(0, 10)}
+          value={date}
           {...register("date", { required: true })}
           onChange={handleDateChange}
           className="form-control"
