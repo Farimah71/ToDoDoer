@@ -99,7 +99,15 @@ export const todoSlice = createSlice({
 
     // Edits an existing task
     editTask: (state, action: PayloadAction<NewTask>) => {
-      console.log(action.payload.id);
+      //Finds the task to be edited:
+      const taskToEdit = state.tasks.find(
+        (task) => task.id === action.payload.id
+      );
+
+      //Replace the values:
+      const index = state.tasks.indexOf(taskToEdit!);
+      state.tasks[index].title = action.payload.task;
+      state.tasks[index].date = action.payload.date;
     },
 
     // Filters tasks by search query
