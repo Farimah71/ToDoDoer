@@ -5,6 +5,7 @@ import ControlButtons from "../../utils/controlButtons/ControlButtons";
 import DateCard from "../../utils/DateCard/DateCard";
 import Badge from "../../utils/badge/Badge";
 import "./todosList.scss";
+import RenderInput from './../../utils/input/RenderInput';
 
 interface TodosListProps {
   filterOption: string;
@@ -58,8 +59,9 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
           {displayingTasks.map((task) => (
             <div key={task.id} className="task-row">
               <li className="list-group-item">
+                
                 {/* Task checkbox */}
-                <input
+                <RenderInput
                   className="form-check-input clickable me-1"
                   type="checkbox"
                   id={task.id}

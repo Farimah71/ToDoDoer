@@ -75,6 +75,7 @@ export const todoSlice = createSlice({
         done: false,
       };
       state.tasks.push(newTask);
+      return state;
     },
 
     // Removes a task from the list
@@ -108,6 +109,8 @@ export const todoSlice = createSlice({
       const index = state.tasks.indexOf(taskToEdit!);
       state.tasks[index].title = action.payload.task;
       state.tasks[index].date = action.payload.date;
+
+      return state;
     },
 
     // Filters tasks by search query
