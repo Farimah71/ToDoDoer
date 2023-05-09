@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useAppDispatch } from "../../app/hooks";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -7,6 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import MyButton from "./../buttons/MyButton";
 import FormBody from "./../../utils/form/FormBody";
 import FormAction from "../../utils/form/FormAction";
+import { addTask } from "../../features/todos/todoSlice";
 
 export interface FormData {
   task: string;
@@ -24,6 +26,7 @@ const Modal = () => {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
   const [open, setOpen] = useState(false);
+  const dispatch = useAppDispatch();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -42,10 +45,10 @@ const Modal = () => {
   };
 
   const onSubmit = (data: FormData) => {
-    console.log(data);
+    dispatch(addTask(data));
   };
 
-  // Resets form after adding new task
+  // Resets form and closes modal after adding new task
   useEffect(() => {
     reset({
       task: "",

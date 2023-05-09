@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { nanoid } from "@reduxjs/toolkit";
 
 interface Task {
   id: string;
@@ -23,24 +24,29 @@ interface TodoState {
   filterTask: FilterTaskState;
 }
 
+interface NewTask {
+  task: string;
+  date: string;
+}
+
 const initialState = {
   tasks: [
     {
       id: "asdf123",
       title: "Learn React.js",
-      date: new Date(2023, 5, 6).toDateString(),
+      date: new Date(2023, 5, 9).toDateString(),
       done: false,
     },
     {
       id: "asdf456",
       title: "Pay the bills",
-      date: new Date(2023, 5, 7).toDateString(),
+      date: new Date(2023, 5, 10).toDateString(),
       done: true,
     },
     {
       id: "asdf789",
       title: "Start new project",
-      date: new Date(2023, 5, 8).toDateString(),
+      date: new Date(2023, 5, 11).toDateString(),
       done: false,
     },
   ],
@@ -59,7 +65,16 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     // Adds new task to the list
-    addTask: () => {},
+    addTask: (state, action: PayloadAction<NewTask>) => {
+      const task = action.payload;
+      const newTask = {
+        id: nanoid(),
+        title: task.task,
+        date: task.date,
+        done: false,
+      };
+      state.tasks.push(newTask);
+    },
 
     // Removes a task from the list
     removeTask: (state, action: PayloadAction<string>) => {
