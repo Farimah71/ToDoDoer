@@ -18,7 +18,6 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
     (state) => state.todos.searchTask
   );
   const today = new Date().toDateString();
-  const taskDateArr: Date[] = [];
 
   /**
    * If filter("Complete" or "Active") is selected or searchTerm entered,
@@ -30,14 +29,6 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
   const searched = searchTerm && SearchedTasks;
   const filteredOrSearched = filtered ? filtered : searched;
   const displayingTasks = filteredOrSearched ? filteredOrSearched : activeTasks;
-
-  // Converting task dates to date with correct months
-  displayingTasks.forEach((task) => {
-    const taskDate = new Date(task.date);
-    const taskMonth = taskDate.getMonth() - 1;
-    const correctTaskDate = taskDate.setMonth(taskMonth);
-    taskDateArr.push(new Date(correctTaskDate));
-  });
 
   // Deletes a task row by clicking on "delete" icon
   const handleDelete = (id: string) => {
@@ -78,8 +69,9 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
 
                 {/* Renders "Today" badge for the tasks with the date of today */}
                 <div className="today-badge mx-1">
-                  {taskDateArr[displayingTasks.indexOf(task)].toDateString() ===
-                    today && <Badge label={"Today"} />}
+                  {new Date(task.date).toDateString() === today && (
+                    <Badge label={"Today"} />
+                  )}
                 </div>
 
                 {/* Task date and control buttons part of each list item */}
