@@ -6,14 +6,13 @@ import Modal from "../../components/modal/Modal";
 import TodosList from "../../components/todos/TodosList";
 import Filter from "../../utils/filter/Filter";
 import "./main.scss";
+import Notification from "../../utils/notification/Notification";
 
 const Main = () => {
   const dispatch = useAppDispatch();
   const [count, setCount] = useState<number>(0);
   const allTasks = useAppSelector((state) => state.todos.tasks);
-  const { option } = useAppSelector(
-    (state) => state.todos.filterTask
-  );
+  const { option } = useAppSelector((state) => state.todos.filterTask);
 
   //Counts the number of uncomplete tasks:
   const uncompleteTasks = allTasks.filter((task) => task.done === false);
@@ -36,11 +35,7 @@ const Main = () => {
         <Search handleSearch={handleSearch} />
 
         {/*Number of remaining tasks notification */}
-        <span className="remained-tasks">
-          {count === 0 && "Hey, You are free!"}
-          {count === 1 && `${count} item left.`}
-          {count > 1 && `${count} items left.`}
-        </span>
+        <Notification data={count} />
 
         <Modal />
       </div>

@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
-$font: "Kalam", cursive;
-
 .main {
   padding: 1em;
   color: black;
@@ -10,10 +7,4 @@ $font: "Kalam", cursive;
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
-}
-
-.remained-tasks {
-  font-family: $font;
-  font-size: large;
-  line-height: 2.5em;
 }
