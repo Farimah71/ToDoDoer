@@ -20,21 +20,26 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
   const today = new Date().toDateString();
 
   /**
-   * If filter("Complete" or "Active") is selected or searchTerm entered,
+   * If filter("All" ,"Complete" or "Active") is selected or searchTerm entered,
    * filteredTasks or searchedTasks are shown;
    * Otherwise, activeTasks render.
    */
   const activeTasks = tasks.filter((task) => task.done === false);
-  const filtered = filterOption && filteredTask;
-  const searched = searchTerm && SearchedTasks;
-  const filteredOrSearched = filtered ? filtered : searched;
-  const displayingTasks = filteredOrSearched ? filteredOrSearched : activeTasks;
+  let displayingTasks = searchTerm ? SearchedTasks : activeTasks;
+
+  if (filterOption) {
+    displayingTasks = filteredTask;
+  }
+  if (filterOption && searchTerm) {
+    displayingTasks = SearchedTasks;
+  }
 
   // Deletes a task row by clicking on "delete" icon
   const handleDelete = (id: string) => {
     dispatch(removeTask(id));
   };
 
+  //Finds task by its "id" to be edited:
   const handleFetchedDataToEdit = (id: string) => {
     const fetchedData = tasks.find((task) => task.id === id);
     return fetchedData!;

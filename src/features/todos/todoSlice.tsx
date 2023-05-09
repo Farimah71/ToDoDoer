@@ -113,9 +113,19 @@ export const todoSlice = createSlice({
     // Filters tasks by search query
     searchTask: (state, action: PayloadAction<string>) => {
       let searchTerm = action.payload;
-      const SearchedTasks = state.tasks.filter((task) =>
-        task.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      let SearchedTasks = [];
+      // Searches among filtered tasks only:
+      if (state.filterTask.option) {
+        SearchedTasks = state.filterTask.filteredTask.filter((task) =>
+          task.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      }
+      // If there is no filter, searches among whole tasks:
+      else {
+        SearchedTasks = state.tasks.filter((task) =>
+          task.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      }
       state.searchTask = {
         searchTerm,
         SearchedTasks,
