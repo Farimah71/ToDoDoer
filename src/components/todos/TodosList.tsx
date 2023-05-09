@@ -35,6 +35,11 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
     dispatch(removeTask(id));
   };
 
+  const handleFetchedDataToEdit = (id: string) => {
+    const fetchedData = tasks.find((task) => task.id === id);
+    return fetchedData!;
+  };
+
   // Toggles between complete and uncomplete task
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(toggleDone(event.target.id));
@@ -74,10 +79,13 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
                   )}
                 </div>
 
-                {/* Task date and control buttons part of each list item */}
+                {/* Task date and control buttons of each list item */}
                 <div className="control-date-group d-flex ms-auto">
                   <DateCard date={task.date} />
-                  <ControlButtons onDelete={() => handleDelete(task.id)} />
+                  <ControlButtons
+                    fetchedDataToEdit={handleFetchedDataToEdit(task.id)}
+                    onDelete={() => handleDelete(task.id)}
+                  />
                 </div>
               </li>
             </div>

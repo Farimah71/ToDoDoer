@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { searchTask, filterTask } from "../../features/todos/todoSlice";
 import Search from "../../components/Search-bar/Search";
-import Modal from "../../components/modal/Modal";
+import AddModal from "../../components/modal/AddModal";
 import TodosList from "../../components/todos/TodosList";
 import Filter from "../../utils/filter/Filter";
 import "./main.scss";
@@ -37,7 +37,8 @@ const Main = () => {
         {/*Number of remaining tasks notification */}
         <Notification data={count} />
 
-        <Modal />
+        {/* New task button and popup modal on click*/}
+        <AddModal />
       </div>
 
       {/* Renders todo list */}

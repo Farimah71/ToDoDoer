@@ -1,11 +1,17 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
 
-interface Task {
+export interface Task {
   id: string;
   title: string;
   date: string;
   done: boolean;
+}
+
+interface NewTask {
+  id?: string;
+  task: string;
+  date: string;
 }
 
 interface SearchTaskState {
@@ -24,29 +30,24 @@ interface TodoState {
   filterTask: FilterTaskState;
 }
 
-interface NewTask {
-  task: string;
-  date: string;
-}
-
 const initialState = {
   tasks: [
     {
       id: "asdf123",
       title: "Learn React.js",
-      date: "05.09.2023",
+      date: "2023-05-09",
       done: false,
     },
     {
       id: "asdf456",
       title: "Pay the bills",
-      date: "05.10.2023",
+      date: "2023-05-10",
       done: true,
     },
     {
       id: "asdf789",
       title: "Start new project",
-      date: "05.11.2023",
+      date: "2023-05-11",
       done: false,
     },
   ],
@@ -97,7 +98,9 @@ export const todoSlice = createSlice({
     },
 
     // Edits an existing task
-    editTask: () => {},
+    editTask: (state, action: PayloadAction<NewTask>) => {
+      console.log(action.payload.id);
+    },
 
     // Filters tasks by search query
     searchTask: (state, action: PayloadAction<string>) => {

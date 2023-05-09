@@ -1,7 +1,8 @@
 import { UseFormRegister, useFormState } from "react-hook-form";
-import { FormData } from "../../components/modal/Modal";
+import { FormData } from "../../components/modal/AddModal";
 
 interface FormBodyProps {
+  id?: string;
   task: string;
   date: string;
   handleTaskChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -11,6 +12,7 @@ interface FormBodyProps {
 }
 
 const FormBody = ({
+  id,
   task,
   date,
   handleTaskChange,
@@ -21,6 +23,9 @@ const FormBody = ({
   return (
     <div className="row">
       <div className="col-7">
+        {/* Hidden field for "id" to be passed via payload for editing a task */}
+        <input type="hidden" value={id} {...register("id")} />
+
         {/* "Task" field with label and error message */}
         <label htmlFor="task">Task</label>
         <input
