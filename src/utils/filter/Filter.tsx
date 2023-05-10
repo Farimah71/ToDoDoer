@@ -30,8 +30,7 @@ function Filter({ handleClick }: FilterProps) {
         value="All"
         icon={<ListIcon />}
         sx={{
-          "&.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected":
-            { color: "#837108" },
+          "&.Mui-selected": { color: "#837108" },
         }}
       />
       <BottomNavigationAction
