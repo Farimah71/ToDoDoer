@@ -25,14 +25,7 @@ function Filter({ handleClick }: FilterProps) {
       onChange={handleChange}
     >
       {/* Filter buttons: */}
-      <BottomNavigationAction
-        label="All"
-        value="All"
-        icon={<ListIcon />}
-        sx={{
-          "&.Mui-selected": { color: "#837108 !important" },
-        }}
-      />
+      <BottomNavigationAction label="All" value="All" icon={<ListIcon />} />
       <BottomNavigationAction
         label="Complete"
         value="Complete"
