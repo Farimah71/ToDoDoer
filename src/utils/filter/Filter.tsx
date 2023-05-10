@@ -30,7 +30,7 @@ function Filter({ handleClick }: FilterProps) {
         value="All"
         icon={<ListIcon />}
         sx={{
-          "&.Mui-selected": { color: "#837108" },
+          "&.Mui-selected": { color: "#837108 !important" },
         }}
       />
       <BottomNavigationAction
