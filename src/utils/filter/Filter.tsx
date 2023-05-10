@@ -25,7 +25,15 @@ function Filter({ handleClick }: FilterProps) {
       onChange={handleChange}
     >
       {/* Filter buttons: */}
-      <BottomNavigationAction label="All" value="All" icon={<ListIcon />} />
+      <BottomNavigationAction
+        label="All"
+        value="All"
+        icon={<ListIcon />}
+        sx={{
+          "&.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected":
+            { color: "#837108" },
+        }}
+      />
       <BottomNavigationAction
         label="Complete"
         value="Complete"
