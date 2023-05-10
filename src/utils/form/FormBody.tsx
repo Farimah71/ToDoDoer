@@ -29,6 +29,7 @@ const FormBody = ({
         {/* "Task" field with label and error message */}
         <label htmlFor="task">Task</label>
         <input
+          id="task"
           value={task}
           {...register("task", { required: true })}
           onChange={handleTaskChange}
@@ -43,6 +44,7 @@ const FormBody = ({
         <label htmlFor="date">Date</label>
         <input
           type="date"
+          id="date"
           value={date}
           {...register("date", { required: true })}
           onChange={handleDateChange}
