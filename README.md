@@ -9,7 +9,7 @@ An application helps managing to-do tasks as a piece of cake! 🍰
 
 - Task search
 
-- Task filter(All, complete, active)
+- Task filter(all, complete, active)
 
 - Notification of uncompleted tasks number
 
