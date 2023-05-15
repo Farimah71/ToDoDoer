@@ -1,5 +1,5 @@
-# ToDoDoer :pencil:
-An application helps managing to-do tasks as a piece of cake! :cake:
+# ToDoDoer 📝
+An application helps managing to-do tasks as a piece of cake! 🍰
 
 ## Features
 
@@ -11,13 +11,28 @@ An application helps managing to-do tasks as a piece of cake! :cake:
 
 - Task filter(All, complete, active)
 
-- Notification of uncomplete tasks number
+- Notification of uncompleted tasks number
 
 - Today badge for today tasks
 
 - Done/undone task toggling
 
 ## Table of contents
+
+- [ToDoDoer 📝](#tododoer-)
+  - [Features](#features)
+  - [Table of contents](#table-of-contents)
+  - [Demo](#demo)
+  - [Run](#run)
+  - [Available Scripts](#available-scripts)
+  - [Project file structure](#project-file-structure)
+  - [Screenshots](#screenshots)
+  - [Packages](#packages)
+  - [Style](#style)
+  - [State management](#state-management)
+  - [Badges](#badges)
+  - [Contributing](#contributing)
+  - [Feedback](#feedback)
 
 ## Demo
 
@@ -55,7 +70,7 @@ Your app is ready to be deployed!
 ### `npm run preview`
 
 Once you've built the app, you may test it locally by running `npm run preview` command.
-The vite `preview` command will boot up a local static web server that serves the files from `dist` at [http://localhost:4173](http://localhost:4173). It's an easy way to check if the production build looks OK in your local environment.
+The Vite `preview` command will boot up a local static web server that serves the files from `dist` at [http://localhost:4173](http://localhost:4173). It's an easy way to check if the production build looks OK in your local environment.
 
 For more configuration about the port of the server for `preview` command, visit [this page](https://vitejs.dev/guide/static-deploy.html#testing-the-app-locally).
 
@@ -102,7 +117,7 @@ In this project, the second approach(**grouping by file type**) is used.
  
  #
   
- #### Serach tasks:
+ #### Search tasks:
  
   
  <div align="center">
@@ -110,14 +125,51 @@ In this project, the second approach(**grouping by file type**) is used.
   ![ToDoDoer (SearchTask)](https://github.com/Farimah71/ToDoDoer/assets/94958148/b23e18d7-3c4b-45a8-bb8c-0a265ba62bc5)
 
  </div>
+ 
+ ## Packages
+ These packages are used in this project:
+ - mui/icons-material
+ - mui/material
+ - reduxjs/toolkit
+ - bootstrap
+ - react-bootstrap
+ - react-hook-form
+ - react-redux
+ 
+ ## Style
+ The following are the styles used in this project: 
+ 
+ - SASS
+ - Material UI
+ - Bootstrap
+
+## State management
+**Redux Toolkit** is used for managing react state to provide a single source of truth for our data.
 
 
+The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
 
+- "Configuring a Redux store is too complicated"
+- "I have to add a lot of packages to get Redux to do anything useful"
+- "Redux requires too much boilerplate code"
 
+Learn more about [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started).
 
+## Badges
 
+[![MIT License](https://img.shields.io/github/repo-size/farimah71/ToDoDoer?style=flat-square)](https://choosealicense.com/licenses/mit/)
 
+## Contributing
+We welcome contributions from the community. 💎
 
+If you have any suggestions for improving our project or would like to contribute code, please feel free to submit a pull request or open an issue on our GitHub repository.
 
+## Feedback
+We want to hear from you!
 
+If you have any feedback on our project, whether it's positive or negative, please let us know. We're always looking for ways to improve and value your input.
 
+#
+Coded with ❤️ by Farimah.
+
+Thanks for checking out my project. If you found it useful, please consider giving it a ⭐ on GitHub. Your support means a lot to me.
