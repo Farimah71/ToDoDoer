@@ -15,10 +15,10 @@ const Main = () => {
   const { option } = useAppSelector((state) => state.todos.filterTask);
 
   //Counts the number of uncomplete tasks:
-  const uncompleteTasks = allTasks.filter((task) => task.done === false);
-  const uncompleteTasksCount = uncompleteTasks.length;
+  const uncompletedTasks = allTasks.filter((task) => task.done === false);
+  const uncompletedTasksCount = uncompletedTasks.length;
 
-  useEffect(() => setCount(uncompleteTasksCount));
+  useEffect(() => setCount(uncompletedTasksCount));
 
   const handleSearch = (searchTerm: string) => {
     dispatch(searchTask(searchTerm));
