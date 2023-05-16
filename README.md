@@ -144,7 +144,7 @@ In this project, the second approach(**grouping by file type**) is used.
  - Bootstrap
 
 ## State management
-**Redux Toolkit** is used for managing react state to provide a single source of truth for our data.
+**Redux Toolkit** is used for managing React's state to provide a single source of truth for our data.
 
 
 The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
