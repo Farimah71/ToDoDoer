@@ -48,9 +48,11 @@ However, some templates require a higher Node.js version to work, please upgrade
 You can download [Node.js](https://nodejs.org/en) if you haven't installed it yet.
 
 ## Available Scripts
+First clone this repository.
 
 In the project directory, you can run:
 
+### `npm install`
 ### `npm run dev`
 
 Runs the app in the development mode.\
