@@ -26,7 +26,7 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
   //Filters the tasks
   //each time a change(add,delete or update) happens:
   useEffect(() => {
-    tasks ? dispatch(filterTask(filterOption)) : console.log("no");
+    dispatch(filterTask(filterOption));
   }, [tasks]);
 
   /**
