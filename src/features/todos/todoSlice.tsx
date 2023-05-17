@@ -35,19 +35,19 @@ const initialState = {
     {
       id: "asdf123",
       title: "Learn React.js",
-      date: "2023-05-09",
+      date: "2023-05-17",
       done: false,
     },
     {
       id: "asdf456",
       title: "Pay the bills",
-      date: "2023-05-10",
+      date: "2023-05-18",
       done: true,
     },
     {
       id: "asdf789",
       title: "Start new project",
-      date: "2023-05-11",
+      date: "2023-05-19",
       done: false,
     },
   ],
@@ -105,7 +105,7 @@ export const todoSlice = createSlice({
         (task) => task.id === action.payload.id
       );
 
-      //Replace the values:
+      //Replaces the values:
       const index = state.tasks.indexOf(taskToEdit!);
       state.tasks[index].title = action.payload.task;
       state.tasks[index].date = action.payload.date;
@@ -113,7 +113,7 @@ export const todoSlice = createSlice({
       return state;
     },
 
-    // Filters tasks by search query
+    // Finds tasks by search query
     searchTask: (state, action: PayloadAction<string>) => {
       let searchTerm = action.payload;
       let SearchedTasks = [];

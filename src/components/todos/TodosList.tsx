@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { removeTask, toggleDone } from "../../features/todos/todoSlice";
+import {
+  filterTask,
+  removeTask,
+  toggleDone,
+} from "../../features/todos/todoSlice";
 import ControlButtons from "../../utils/controlButtons/ControlButtons";
 import DateCard from "../../utils/DateCard/DateCard";
 import Badge from "../../utils/badge/Badge";
 import "./todosList.scss";
-import RenderInput from './../../utils/input/RenderInput';
+import RenderInput from "./../../utils/input/RenderInput";
 
 interface TodosListProps {
   filterOption: string;
@@ -19,6 +23,11 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
     (state) => state.todos.searchTask
   );
   const today = new Date().toDateString();
+  //Filters the tasks
+  //each time a change(add,delete or update) happens:
+  useEffect(() => {
+    tasks ? dispatch(filterTask(filterOption)) : console.log("no");
+  }, [tasks]);
 
   /**
    * If filter("All" ,"Complete" or "Active") is selected or searchTerm entered,
@@ -59,7 +68,6 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
           {displayingTasks.map((task) => (
             <div key={task.id} className="task-row">
               <li className="list-group-item">
-                
                 {/* Task checkbox */}
                 <RenderInput
                   className="form-check-input clickable me-1"
