@@ -20,7 +20,7 @@ const EditModal = ({ dataToEdit }: EditModalProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm<FormData>();
 
   //Initial form load with selected task current data(title and date):
@@ -48,12 +48,8 @@ const EditModal = ({ dataToEdit }: EditModalProps) => {
 
   const onSubmit = (data: FormData) => {
     dispatch(editTask(data));
-  };
-
-  // Closes modal after editing a task
-  useEffect(() => {
     handleClose();
-  }, [isSubmitSuccessful]);
+  };
 
   return (
     <div>
