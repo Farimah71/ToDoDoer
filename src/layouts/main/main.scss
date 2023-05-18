@@ -9,3 +9,13 @@
   margin-bottom: 40px;
   align-items: center;
 }
+
+.expand {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.shrink {
+  opacity: 0;
+  transition: opacity;
+}

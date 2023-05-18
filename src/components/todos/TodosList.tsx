@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
   filterTask,
@@ -23,6 +23,7 @@ const TodosList = ({ filterOption }: TodosListProps): JSX.Element => {
     (state) => state.todos.searchTask
   );
   const today = new Date().toDateString();
+
   //Filters the tasks
   //each time a change(add,delete or update) happens:
   useEffect(() => {

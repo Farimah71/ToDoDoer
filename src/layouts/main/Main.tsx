@@ -5,12 +5,14 @@ import Search from "../../components/Search-bar/Search";
 import AddModal from "../../components/modal/AddModal";
 import TodosList from "../../components/todos/TodosList";
 import Filter from "../../utils/filter/Filter";
-import "./main.scss";
 import Notification from "../../utils/notification/Notification";
+import "./main.scss";
 
 const Main = () => {
   const dispatch = useAppDispatch();
   const [count, setCount] = useState<number>(0);
+  const [loading, setLoading] = useState<Boolean>(false);
+  const [notifClassNames, setNotifClassNames] = useState<string>("expand");
   const allTasks = useAppSelector((state) => state.todos.tasks);
   const { option } = useAppSelector((state) => state.todos.filterTask);
 
@@ -19,9 +21,15 @@ const Main = () => {
   const uncompletedTasksCount = uncompletedTasks.length;
 
   useEffect(() => setCount(uncompletedTasksCount));
+  useEffect(() => {
+    loading ? setNotifClassNames("shrink") : setNotifClassNames("expand");
+  }, [loading]);
 
+  // Search term is dispatched:
   const handleSearch = (searchTerm: string) => {
     dispatch(searchTask(searchTerm));
+    // Renders spinner on search:
+    searchTerm !== "" ? setLoading(true) : setLoading(false);
   };
 
   // Filter value("All", "Complete", "Active") is dispatched:
@@ -32,10 +40,12 @@ const Main = () => {
   return (
     <div className="main">
       <div className="first-row">
-        <Search handleSearch={handleSearch} />
+        <Search handleSearch={handleSearch} loading={loading} />
 
         {/*Number of remaining tasks notification */}
-        <Notification data={count} />
+        <div className={notifClassNames}>
+          <Notification data={count} />
+        </div>
 
         {/* New task button and popup modal on click*/}
         <AddModal />
