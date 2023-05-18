@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
+import { TasksList } from "../../services/fakeTasks";
 
 export interface Task {
   id: string;
@@ -31,26 +32,7 @@ interface TodoState {
 }
 
 const initialState = {
-  tasks: [
-    {
-      id: "asdf123",
-      title: "Learn React.js",
-      date: "2023-05-17",
-      done: false,
-    },
-    {
-      id: "asdf456",
-      title: "Pay the bills",
-      date: "2023-05-18",
-      done: true,
-    },
-    {
-      id: "asdf789",
-      title: "Start new project",
-      date: "2023-05-19",
-      done: false,
-    },
-  ],
+  tasks: TasksList,
   searchTask: {
     searchTerm: "",
     SearchedTasks: [],
