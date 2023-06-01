@@ -6,6 +6,7 @@ import AddModal from "../../components/modal/AddModal";
 import TodosList from "../../components/todos/TodosList";
 import Filter from "../../utils/filter/Filter";
 import Notification from "../../utils/notification/Notification";
+import NotFound from "../../components/NotFound/NotFound";
 import "./main.scss";
 
 const Main = () => {
@@ -15,6 +16,7 @@ const Main = () => {
     searchResultsCount: number;
   }>({ activeTasksCount: 0, searchResultsCount: 0 });
   const [loading, setLoading] = useState<Boolean>(false);
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [notifClassNames, setNotifClassNames] = useState<string>("show");
   const { filterOption } = useAppSelector((state) => state.todos.filterTask);
   const { SearchedTasks } = useAppSelector((state) => state.todos.searchTask);
@@ -44,6 +46,7 @@ const Main = () => {
 
   // Search term is dispatched:
   const handleSearch = (searchTerm: string) => {
+    setSearchTerm(searchTerm);
     dispatch(searchTask(searchTerm));
   };
 
@@ -55,15 +58,14 @@ const Main = () => {
   return (
     <div className="main">
       <div className="first-row">
-        <Search
-          handleSearch={handleSearch}
-          data={counts.searchResultsCount}
-          loading={loading}
-        />
+        <Search handleSearch={handleSearch} loading={loading} />
 
         {/*Number of remaining tasks notification */}
         <div className={notifClassNames}>
-          <Notification data={counts.activeTasksCount} />
+          <Notification
+            activeTasks={counts.activeTasksCount}
+            searchedResults={searchTerm ? counts.searchResultsCount : null}
+          />
         </div>
 
         {/* New task button and popup modal on click*/}
@@ -74,6 +76,9 @@ const Main = () => {
       <div className="todo-list">
         <TodosList filterOption={filterOption} />
       </div>
+
+      {/* If no tasks found by search query, NotFound component renders: */}
+      {searchTerm && counts.searchResultsCount === 0 && <NotFound />}
 
       {/* Renders task filters*/}
       <div className="filter-tasks">

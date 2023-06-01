@@ -6,10 +6,9 @@ import "../Search-bar/search.scss";
 interface SearchProps {
   handleSearch: (searchTerm: string) => void;
   loading: Boolean;
-  data: number;
 }
 
-const Search = ({ handleSearch, loading, data }: SearchProps) => {
+const Search = ({ handleSearch, loading}: SearchProps) => {
   return (
     <span className="d-flex align-items-center">
       <Container maxWidth="md">

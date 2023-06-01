@@ -10,7 +10,7 @@ interface FilterProps {
   handleClick: (value: string) => void;
 }
 
-function Filter({ handleClick }: FilterProps) {
+const Filter = ({ handleClick }: FilterProps) => {
   const [value, setValue] = useState("Active");
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -38,6 +38,6 @@ function Filter({ handleClick }: FilterProps) {
       />
     </BottomNavigation>
   );
-}
+};
 
 export default Filter;
