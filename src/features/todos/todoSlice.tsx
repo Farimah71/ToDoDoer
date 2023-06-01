@@ -21,7 +21,7 @@ interface SearchTaskState {
 }
 
 interface FilterTaskState {
-  option: string;
+  filterOption: string;
   filteredTask: Task[];
 }
 
@@ -38,7 +38,7 @@ const initialState = {
     SearchedTasks: [],
   },
   filterTask: {
-    option: "",
+    filterOption: "",
     filteredTask: [],
   },
 } as TodoState;
@@ -64,13 +64,13 @@ export const todoSlice = createSlice({
     removeTask: (state, action: PayloadAction<string>) => {
       const taskId = action.payload;
       // Removes from filtered tasks
-      if (state.filterTask.option) {
+      if (state.filterTask.filteredTask) {
         state.filterTask.filteredTask = state.filterTask.filteredTask.filter(
           (task) => task.id !== taskId
         );
       }
       // Removes from searched tasks
-      if (state.searchTask.searchTerm) {
+      if (state.searchTask.SearchedTasks) {
         state.searchTask.SearchedTasks = state.searchTask.SearchedTasks.filter(
           (task) => task.id !== taskId
         );
@@ -100,7 +100,7 @@ export const todoSlice = createSlice({
       let searchTerm = action.payload;
       let SearchedTasks = [];
       // Searches among filtered tasks only:
-      if (state.filterTask.option) {
+      if (state.filterTask.filterOption) {
         SearchedTasks = state.filterTask.filteredTask.filter((task) =>
           task.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
@@ -123,7 +123,7 @@ export const todoSlice = createSlice({
     toggleDone: (state, action: PayloadAction<string>) => {
       const taskId = action.payload;
       // Toggles "complete/uncomplete" among filtered tasks
-      if (state.filterTask.option) {
+      if (state.filterTask.filterOption) {
         state.filterTask.filteredTask = state.filterTask.filteredTask.map(
           (task) => (task.id === taskId ? { ...task, done: !task.done } : task)
         );
@@ -156,7 +156,7 @@ export const todoSlice = createSlice({
           filteredTask = state.tasks;
       }
       state.filterTask = {
-        option,
+        filterOption: option,
         filteredTask,
       };
 

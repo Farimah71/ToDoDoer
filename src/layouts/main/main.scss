@@ -10,12 +10,12 @@
   align-items: center;
 }
 
-.expand {
+.show {
   opacity: 1;
   transition: opacity 1s;
 }
 
-.shrink {
+.hide {
   opacity: 0;
   transition: opacity;
 }

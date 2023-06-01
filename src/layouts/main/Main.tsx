@@ -10,26 +10,41 @@ import "./main.scss";
 
 const Main = () => {
   const dispatch = useAppDispatch();
-  const [count, setCount] = useState<number>(0);
+  const [counts, setCounts] = useState<{
+    activeTasksCount: number;
+    searchResultsCount: number;
+  }>({ activeTasksCount: 0, searchResultsCount: 0 });
   const [loading, setLoading] = useState<Boolean>(false);
-  const [notifClassNames, setNotifClassNames] = useState<string>("expand");
+  const [notifClassNames, setNotifClassNames] = useState<string>("show");
+  const { filterOption } = useAppSelector((state) => state.todos.filterTask);
+  const { SearchedTasks } = useAppSelector((state) => state.todos.searchTask);
   const allTasks = useAppSelector((state) => state.todos.tasks);
-  const { option } = useAppSelector((state) => state.todos.filterTask);
+  //Filters active(uncompleted) tasks:
+  const activeTasks = allTasks.filter((task) => !task.done);
 
-  //Counts the number of uncomplete tasks:
-  const uncompletedTasks = allTasks.filter((task) => task.done === false);
-  const uncompletedTasksCount = uncompletedTasks.length;
-
-  useEffect(() => setCount(uncompletedTasksCount));
   useEffect(() => {
-    loading ? setNotifClassNames("shrink") : setNotifClassNames("expand");
+    setCounts({
+      activeTasksCount: activeTasks.length,
+      searchResultsCount: SearchedTasks.length,
+    });
+  }, [activeTasks.length, SearchedTasks.length]);
+
+  useEffect(() => {
+    loading ? setNotifClassNames("hide") : setNotifClassNames("show");
   }, [loading]);
+
+  // Renders spinner on search:
+  useEffect(() => {
+    setLoading(true);
+    const spinnerTimeOut = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    return () => clearTimeout(spinnerTimeOut);
+  }, [SearchedTasks]);
 
   // Search term is dispatched:
   const handleSearch = (searchTerm: string) => {
     dispatch(searchTask(searchTerm));
-    // Renders spinner on search:
-    searchTerm !== "" ? setLoading(true) : setLoading(false);
   };
 
   // Filter value("All", "Complete", "Active") is dispatched:
@@ -40,11 +55,15 @@ const Main = () => {
   return (
     <div className="main">
       <div className="first-row">
-        <Search handleSearch={handleSearch} loading={loading} />
+        <Search
+          handleSearch={handleSearch}
+          data={counts.searchResultsCount}
+          loading={loading}
+        />
 
         {/*Number of remaining tasks notification */}
         <div className={notifClassNames}>
-          <Notification data={count} />
+          <Notification data={counts.activeTasksCount} />
         </div>
 
         {/* New task button and popup modal on click*/}
@@ -53,7 +72,7 @@ const Main = () => {
 
       {/* Renders todo list */}
       <div className="todo-list">
-        <TodosList filterOption={option} />
+        <TodosList filterOption={filterOption} />
       </div>
 
       {/* Renders task filters*/}

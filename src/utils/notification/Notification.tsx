@@ -6,7 +6,7 @@ interface NotificationProps {
 
 const Notification = ({ data }: NotificationProps) => {
   return (
-    <span className="remained-tasks">
+    <span className="notif-text">
       {data === 0 && "Hey, You are free!"}
       {data === 1 && `${data} item left.`}
       {data > 1 && `${data} items left.`}
