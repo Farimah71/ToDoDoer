@@ -93,7 +93,7 @@ In this project, the second approach(**grouping by file type**) is used.
 
 <div align="center">
   
-  ![ToDoDoer(FilterTask)](https://github.com/Farimah71/ToDoDoer/assets/94958148/32945a06-9bbd-4875-867f-cb30c3937a15)
+  ![localhost_5173_ToDoDoer (1)](https://github.com/Farimah71/ToDoDoer/assets/94958148/b97a52d6-16ab-4c02-a92b-9c1b28a7d664)
 
 </div>
 
@@ -104,7 +104,7 @@ In this project, the second approach(**grouping by file type**) is used.
 
  <div align="center">
   
-  ![ToDoDoer (NewTask)](https://github.com/Farimah71/ToDoDoer/assets/94958148/8ade3e7a-6baf-42cd-bde1-22fc3d90b57c)
+![localhost_5173_ToDoDoer](https://github.com/Farimah71/ToDoDoer/assets/94958148/bc49e92b-87a0-4384-ab86-3307dd63cfbd)
 
  </div>
 
@@ -115,7 +115,7 @@ In this project, the second approach(**grouping by file type**) is used.
   
  <div align="center">
   
-  ![ToDoDoer (EditTask)](https://github.com/Farimah71/ToDoDoer/assets/94958148/80885eb0-2a32-4a39-a76e-bfdfc3a7ef24)
+![localhost_5173_ToDoDoer (2)](https://github.com/Farimah71/ToDoDoer/assets/94958148/c25aed32-7a6f-4741-85e7-424d3fe2600a)
 
  </div>
  
@@ -125,7 +125,7 @@ In this project, the second approach(**grouping by file type**) is used.
  
  <div align="center">
   
-  ![localhost_5173_ToDoDoer](https://github.com/Farimah71/ToDoDoer/assets/94958148/5ff8a2db-0b7b-43e1-872b-748097f0d29f)
+![localhost_5173_ToDoDoer (3)](https://github.com/Farimah71/ToDoDoer/assets/94958148/59749b5e-12a9-46da-92ee-10f8c9247998)
 
  </div>
  
@@ -137,7 +137,7 @@ In this project, the second approach(**grouping by file type**) is used.
   
  <div align="center">
   
- ![farimah71 github io_ToDoDoer_ (1)](https://github.com/Farimah71/ToDoDoer/assets/94958148/4da9115d-0e18-4e46-9efb-c7065a102747)
+![localhost_5173_ToDoDoer (4)](https://github.com/Farimah71/ToDoDoer/assets/94958148/d2d45160-9173-4d44-b96c-09e25a19c8c2)
 
  </div>
  
@@ -147,8 +147,8 @@ In this project, the second approach(**grouping by file type**) is used.
  
  <div align="center">
   
- ![localhost_5173_ToDoDoer (3)](https://github.com/Farimah71/ToDoDoer/assets/94958148/3c8b6df1-e6a5-45cb-ae99-fa81cd64d476)
-  
+  ![localhost_5173_ToDoDoer (5)](https://github.com/Farimah71/ToDoDoer/assets/94958148/7dcabd05-bffa-4c5c-9086-b85fef1edc2e)
+
  </div>
  
  ## Packages
