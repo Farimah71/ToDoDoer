@@ -120,6 +120,17 @@ In this project, the second approach(**grouping by file type**) is used.
  </div>
  
  #
+ 
+ #### No remaining tasks:
+ 
+ <div align="center">
+  
+  ![localhost_5173_ToDoDoer](https://github.com/Farimah71/ToDoDoer/assets/94958148/5ff8a2db-0b7b-43e1-872b-748097f0d29f)
+
+ </div>
+ 
+ #
+ 
   
  #### Search tasks:
  
@@ -136,7 +147,7 @@ In this project, the second approach(**grouping by file type**) is used.
  
  <div align="center">
   
- ![farimah71 github io_ToDoDoer_](https://github.com/Farimah71/ToDoDoer/assets/94958148/28dbf40c-1606-403f-a9b2-8a45704f7988)
+ ![localhost_5173_ToDoDoer (3)](https://github.com/Farimah71/ToDoDoer/assets/94958148/3c8b6df1-e6a5-45cb-ae99-fa81cd64d476)
   
  </div>
  
