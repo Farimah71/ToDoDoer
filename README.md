@@ -13,6 +13,8 @@ An application helps managing to-do tasks as a piece of cake! 🍰
 
 - Notification of uncompleted tasks number
 
+- Notification of search results number
+
 - Today badge for today tasks
 
 - Done/undone task toggling
@@ -124,8 +126,18 @@ In this project, the second approach(**grouping by file type**) is used.
   
  <div align="center">
   
-  ![ToDoDoer (SearchTask)](https://github.com/Farimah71/ToDoDoer/assets/94958148/b23e18d7-3c4b-45a8-bb8c-0a265ba62bc5)
+ ![farimah71 github io_ToDoDoer_ (1)](https://github.com/Farimah71/ToDoDoer/assets/94958148/4da9115d-0e18-4e46-9efb-c7065a102747)
 
+ </div>
+ 
+ #
+ 
+ #### Not found search result:
+ 
+ <div align="center">
+  
+ ![farimah71 github io_ToDoDoer_](https://github.com/Farimah71/ToDoDoer/assets/94958148/28dbf40c-1606-403f-a9b2-8a45704f7988)
+  
  </div>
  
  ## Packages
