@@ -8,6 +8,7 @@ import Filter from "../../utils/filter/Filter";
 import Notification from "../../utils/notification/Notification";
 import NotFound from "../../components/NotFound/NotFound";
 import "./main.scss";
+import Free from "../../components/Free/Free";
 
 const Main = () => {
   const dispatch = useAppDispatch();
@@ -76,6 +77,9 @@ const Main = () => {
       <div className="todo-list">
         <TodosList filterOption={filterOption} />
       </div>
+
+      {/* Renders free component when no active tasks remained: */}
+      {counts.activeTasksCount === 0 && !searchTerm && <Free />}
 
       {/* If no tasks found by search query, NotFound component renders: */}
       {searchTerm && counts.searchResultsCount === 0 && <NotFound />}

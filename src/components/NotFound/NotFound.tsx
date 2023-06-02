@@ -4,7 +4,7 @@ import "./notFound.scss";
 const NotFound = (): JSX.Element => {
   return (
     <div className="text-center pt-5">
-      <img src={notFoundImg} alt="Not found!" className="w-50 img-fluid pb-5" />
+      <img src={notFoundImg} alt="Not found!" className="w-25 img-fluid pb-5" />
       <p className="not-found-prompt">Nothing Found :(</p>
     </div>
   );
