@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useAppDispatch } from "../../app/hooks";
-import { addTask } from "../../features/todos/todoSlice";
+import { useAppDispatch } from "../../hooks";
+import { addTask } from "../../redux/todoSlice";
+import { MyButton } from "../common/button";
+import { FormAction } from "../common/form/FormAction";
+import { FormBody } from "../common/form/FormBody";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import MyButton from "../buttons/MyButton";
-import FormBody from "../../utils/form/FormBody";
-import FormAction from "../../utils/form/FormAction";
 
 export interface FormData {
-  id?:string;
+  id?: string;
   task: string;
   date: string;
 }
 
-const AddModal = () => {
+export const AddModal = () => {
   const {
     register,
     handleSubmit,
@@ -88,5 +88,3 @@ const AddModal = () => {
     </div>
   );
 };
-
-export default AddModal;

@@ -1,22 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Task } from "./../../features/todos/todoSlice";
+import { Task } from "../../redux/todoSlice";
 import { FormData } from "./AddModal";
-import { useAppDispatch } from "../../app/hooks";
-import { editTask } from "../../features/todos/todoSlice";
+import { useAppDispatch } from "../../hooks";
+import { editTask } from "../../redux/todoSlice";
+import { FormBody } from "../common/form/FormBody";
+import { FormAction } from "../common/form/FormAction";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import FormBody from "../../utils/form/FormBody";
-import FormAction from "../../utils/form/FormAction";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 
 interface EditModalProps {
   dataToEdit: Task;
 }
 
-const EditModal = ({ dataToEdit }: EditModalProps) => {
+export const EditModal = ({ dataToEdit }: EditModalProps) => {
   const {
     register,
     handleSubmit,
@@ -86,5 +86,3 @@ const EditModal = ({ dataToEdit }: EditModalProps) => {
     </div>
   );
 };
-
-export default EditModal;

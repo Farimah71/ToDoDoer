@@ -1,10 +1,10 @@
 import { Provider } from "react-redux";
-import store from "./store";
-import Header from "../layouts/header/Header";
-import Main from "../layouts/main/Main";
+import { store } from "../redux/store";
+import { Header } from "../components/header";
+import { Main } from "../components/main";
 import "./App.scss";
 
-function App() {
+export const App = () => {
   return (
     <Provider store={store}>
       <div className="App">
@@ -13,6 +13,4 @@ function App() {
       </div>
     </Provider>
   );
-}
-
-export default App;
+};
